@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "722350389349",
+    "firebase_url": "https://tits-student-portal-default-rtdb.firebaseio.com",
+    "project_id": "tits-student-portal",
+    "storage_bucket": "tits-student-portal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722350389349:android:5313f483b47c0c748f2e8c",
+        "android_client_info": {
+          "package_name": "com.example.tits_cs_department"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "722350389349-fh2ub44bhvq27o3tjruu6cofqmeg72cr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tits_cs_department",
+            "certificate_hash": "fc7680fb2f969303825ef75b76278421b94d12ac"
+          }
+        },
+        {
+          "client_id": "722350389349-mic332b3mkm653fk4229suae0ig008d6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuI66o1_WVpmUSdx6ZMKPDc9wSVu9gx54"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "722350389349-mic332b3mkm653fk4229suae0ig008d6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
