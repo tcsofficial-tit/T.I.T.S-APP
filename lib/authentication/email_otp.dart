@@ -8,8 +8,6 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:tits_cs_department/widgets/custom_button.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import 'home.dart';
-import 'widgets/custom_text_field.dart';
 
 class EmailVerification extends StatefulWidget {
   String name, email, rollNo, password;
@@ -185,6 +183,7 @@ class _EmailVerificationState extends State<EmailVerification> {
       },
     );
   }
+  
 
   registerToFb() {
     try {

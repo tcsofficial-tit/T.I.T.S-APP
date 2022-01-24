@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../authentication.dart';
+import '../authentication/authentication.dart';
 import '../home.dart';
 
 class RoutingBasedOnAuth{

@@ -1,19 +1,21 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:email_auth/email_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:tits_cs_department/email_otp.dart';
 import 'package:tits_cs_department/widgets/custom_button.dart';
 import 'package:velocity_x/velocity_x.dart';
-
-import 'home.dart';
-import 'widgets/custom_text_field.dart';
+import '../widgets/custom_text_field.dart';
+import 'email_otp.dart';
+import 'authentication_controller.dart';
 
 class AuthenticationScreen extends StatelessWidget {
+  final controller = Get.put(AuthenticationController());
   AuthenticationScreen({Key? key}) : super(key: key);
   late String name, email, rollNo, password;
-  final GlobalKey<FormState> _studentFormKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _studentSignUpFormKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _studentLogInFormKey = GlobalKey<FormState>();
   final GlobalKey<FormState> _teachersFormKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -83,34 +85,97 @@ class AuthenticationScreen extends StatelessWidget {
 
   Widget buildStudentCard(BuildContext context) {
     return Center(
-      child: VxGlassmorphic(
-        opacity: 0.1,
-        width: Get.width * 0.9,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          VxGlassmorphic(
+              opacity: 0.1,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: "Student".text.xl4.bold.white.make().shimmer(
+                    primaryColor: Vx.warmGray100,
+                    secondaryColor: Colors.purple),
+              )),
+          SizedBox(
+            height: 20,
+          ),
+          VxGlassmorphic(
+            opacity: 0.1,
+            width: Get.width * 0.9,
+            child: Obx(
+              () => CustomScrollView(
+                shrinkWrap: true,
+                slivers: [
+                  _buildTabButtons(context),
+                  _buildStudentSignupForm(context),
+                  _buildStudentLogInForm(context),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildStudentLogInForm(BuildContext context) {
+    return SliverVisibility(
+      visible: controller.currentTabIndex.value == 0,
+      sliver: SliverToBoxAdapter(
         child: Form(
-          key: _studentFormKey,
+          key: _studentLogInFormKey,
           child: Padding(
             padding: EdgeInsets.all(Get.width / 20),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                buildCustomTextFieldForRollNo(_studentFormKey),
+                buildCustomTextFiledForEMail(_studentLogInFormKey),
                 SizedBox(
                   height: 20,
                 ),
-                buildCustomTextFieldForName(_studentFormKey),
-                SizedBox(
-                  height: 20,
-                ),
-                buildCustomTextFiledForEMail(_studentFormKey),
-                SizedBox(
-                  height: 20,
-                ),
-                buildCustomTextFiledForPassword(_studentFormKey),
+                buildCustomTextFiledForPassword(_studentLogInFormKey),
                 SizedBox(
                   height: 30,
                 ),
-                buildCustomButtonForContinue(context, _studentFormKey)
+                buildCustomButtonForLogin(context, _studentLogInFormKey)
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildStudentSignupForm(BuildContext context) {
+    return SliverVisibility(
+      visible: controller.currentTabIndex.value == 1,
+      sliver: SliverToBoxAdapter(
+        child: Form(
+          key: _studentSignUpFormKey,
+          child: Padding(
+            padding: EdgeInsets.all(Get.width / 20),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                buildCustomTextFieldForRollNo(_studentSignUpFormKey),
+                SizedBox(
+                  height: 20,
+                ),
+                buildCustomTextFieldForName(_studentSignUpFormKey),
+                SizedBox(
+                  height: 20,
+                ),
+                buildCustomTextFiledForEMail(_studentSignUpFormKey),
+                SizedBox(
+                  height: 20,
+                ),
+                buildCustomTextFiledForPassword(_studentSignUpFormKey),
+                SizedBox(
+                  height: 30,
+                ),
+                buildCustomButtonForContinue(context, _studentSignUpFormKey)
               ],
             ),
           ),
@@ -221,6 +286,77 @@ class AuthenticationScreen extends StatelessWidget {
           });
         }
       },
+    );
+  }
+
+  buildCustomButtonForLogin(
+      BuildContext context, GlobalKey<FormState> formKey) {
+    return CustomButton(
+      text: "Log In",
+      onPressed: () {
+        if (formKey.currentState!.validate()) {
+          logInToFb(context);
+        }
+      },
+    );
+  }
+
+  void logInToFb(BuildContext context) {
+    FirebaseAuth.instance
+        .signInWithEmailAndPassword(email: email, password: password)
+        .catchError((err) {
+      // setState(() {
+      //   isLoading = false;
+      // });
+      Get.log(err.message);
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text("Error"),
+              content: Text(err.message),
+              actions: [
+                ElevatedButton(
+                  child: Text("Ok"),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                )
+              ],
+            );
+          });
+    });
+  }
+
+  Widget _buildTabButtons(BuildContext context) {
+    return SliverPadding(
+      padding: EdgeInsets.symmetric(
+        horizontal: Get.width * 0.05,
+      ),
+      sliver: SliverToBoxAdapter(
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(
+                color: Theme.of(context).disabledColor,
+              ),
+            ),
+          ),
+          child: TabBar(
+            indicatorColor: Colors.white,
+            controller: controller.tabController,
+            onTap: controller.changeTab,
+            tabs: [
+              Tab(
+                text: 'Login'.tr,
+              ),
+              Tab(
+                text: 'New User'.tr,
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
