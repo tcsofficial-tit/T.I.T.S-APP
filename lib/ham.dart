@@ -51,9 +51,9 @@ class ham extends StatelessWidget {
                         .child("Users")
                         .child(result?.uid.toString()??'')
                         .once(),
-                    builder: (context,  snapshot) {
+                    builder: (context, AsyncSnapshot snapshot) {
                       if (snapshot.hasData) {
-                        return Text(snapshot.data.['email'],style: TextStyle(color: Colors.black12 ));
+                        return Text(snapshot.data.value['email'],style: TextStyle(color: Colors.black12 ));
                       } else {
                         return CircularProgressIndicator();
                       }
@@ -62,11 +62,11 @@ class ham extends StatelessWidget {
                     future: FirebaseDatabase.instance
                         .reference()
                         .child("Users")
-                        .child(result.uid)
+                        .child(result!.uid)
                         .once(),
-                    builder: (context, AsyncSnapshot<DataSnapshot> snapshot) {
+                    builder: (context,AsyncSnapshot snapshot) {
                       if (snapshot.hasData) {
-                        return Text(snapshot.data.value['name'],style: TextStyle(color: textColor),);
+                        return Text(snapshot.data.value['name'],style: TextStyle(color: Colors.black),);
                       } else {
                         return CircularProgressIndicator();
                       }
@@ -90,15 +90,7 @@ class ham extends StatelessWidget {
                 title: CustomDescription(text: 'Logout'),
                 onTap: () {
                   FirebaseAuth auth = FirebaseAuth.instance;
-                  auth.signOut().then((res) {
-                    // Navigator.pushAndRemoveUntil(
-                    //     context,
-                    //     MaterialPageRoute(builder: (context) => EmailLogIn()),
-                    //         (Route<dynamic> route) => false);
-                    Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => LoginMain()));
-                  }
-                  );
-                  // Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => LoginMain()));
+                  auth.signOut();
                 },
               ),
               ListTile(
@@ -125,7 +117,8 @@ class ham extends StatelessWidget {
                   subtitle: CustomDescription(text: 'version 1.1.0101'),
                   onTap: null
               ),
-            ],,
+            ],)
+
     );
   }
 }

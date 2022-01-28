@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class CustomHeader extends StatelessWidget {
   final String text;
-  const CustomHeader({@required this.text});
+  const CustomHeader({required this.text});
   @override
   Widget build(BuildContext context) {
     return Text(
@@ -17,7 +17,7 @@ class CustomHeader extends StatelessWidget {
 
 class CustomDescription extends StatelessWidget {
   final String text;
-  const CustomDescription({@required this.text});
+  const CustomDescription({required this.text});
   @override
   Widget build(BuildContext context) {
     return Text(
@@ -35,7 +35,7 @@ class CustomDescription extends StatelessWidget {
 
 class TermsHeader extends StatelessWidget {
   final String text;
-  const TermsHeader({@required this.text});
+  const TermsHeader({required this.text});
   @override
   Widget build(BuildContext context) {
     return Text(
@@ -52,7 +52,7 @@ class TermsHeader extends StatelessWidget {
 
 class TermsDescription extends StatelessWidget {
   final String text;
-  const TermsDescription({@required this.text});
+  const TermsDescription({required this.text});
   @override
   Widget build(BuildContext context) {
     return Text(
