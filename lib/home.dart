@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tits_cs_department/ham.dart';
 import 'package:tits_cs_department/place.dart';
-import 'package:tits_cs_department/study.dart';
+import 'package:tits_cs_department/study_material/study_home.dart';
 import 'package:tits_cs_department/test.dart';
 import 'package:tits_cs_department/us.dart';
 import 'package:tits_cs_department/web.dart';
@@ -16,11 +16,11 @@ import 'member.dart';
 import 'note.dart';
 
 var Images = [
-  "icon/icons/1.jpg",
-  "icon/icons/2.jpg",
-  "icon/icons/3.png",
-  "icon/icons/4.jpg",
-  "icon/icons/5.jpg"
+  "assets/icons/1.jpg",
+  "assets/icons/2.jpg",
+  "assets/icons/3.png",
+  "assets/icons/4.jpg",
+  "assets/icons/5.jpg"
 ];
 
 class Home extends StatelessWidget {
@@ -34,12 +34,15 @@ class Home extends StatelessWidget {
       backgroundColor: Colors.white,
       drawer: ham(),
       appBar: AppBar(backgroundColor: Color(0xff3da2dd), actions: [
-        Container(
-            height: 35,
-            width: 270,
-            child: Image.asset(
-              "icon/name.jpg",
-              fit: BoxFit.fitWidth,
+        Hero(
+            tag: 'TIT_Logo',
+            child: Container(
+              height: 35,
+              width: 270,
+              child: Image.asset(
+                "assets/name.jpg",
+                fit: BoxFit.fitWidth,
+              ),
             )),
         IconButton(
           onPressed: () {
@@ -100,7 +103,7 @@ class Home extends StatelessWidget {
                   margin: EdgeInsets.only(left: 10),
                   height: 130,
                   width: 106,
-                  child: Image.asset("icon/dirct.jpg", fit: BoxFit.cover),
+                  child: Image.asset("assets/dirct.jpg", fit: BoxFit.cover),
                 ),
               ),
               GestureDetector(
@@ -112,7 +115,7 @@ class Home extends StatelessWidget {
                   margin: EdgeInsets.only(left: 10),
                   height: 130,
                   width: 106,
-                  child: Image.asset("icon/parm.png", fit: BoxFit.cover),
+                  child: Image.asset("assets/parm.png", fit: BoxFit.cover),
                 ),
               ),
               GestureDetector(
@@ -124,7 +127,8 @@ class Home extends StatelessWidget {
                   margin: EdgeInsets.only(left: 10, right: 10),
                   height: 130,
                   width: 106,
-                  child: Image.asset("icon/mukesh.jpeg", fit: BoxFit.fitWidth),
+                  child:
+                      Image.asset("assets/mukesh.jpeg", fit: BoxFit.fitWidth),
                 ),
               ),
             ],
@@ -147,7 +151,7 @@ class Home extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         maxRadius: 25,
-                        backgroundImage: AssetImage('icon/member.jpeg'),
+                        backgroundImage: AssetImage('assets/member.jpeg'),
                       ),
                       SizedBox(
                         height: 2,
@@ -170,7 +174,7 @@ class Home extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         maxRadius: 25,
-                        backgroundImage: AssetImage('icon/event.png'),
+                        backgroundImage: AssetImage('assets/event.png'),
                       ),
                       SizedBox(
                         height: 2,
@@ -185,15 +189,15 @@ class Home extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => study()));
+                      MaterialPageRoute(builder: (context) => StudyMaterial()));
                 },
                 child: Container(
                   height: 90,
                   child: Column(
-                    children: [
+                    children: const [
                       CircleAvatar(
                         maxRadius: 25,
-                        backgroundImage: AssetImage('icon/study.jpeg'),
+                        backgroundImage: AssetImage('assets/study.jpeg'),
                       ),
                       SizedBox(
                         height: 2,
@@ -220,7 +224,7 @@ class Home extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         maxRadius: 25,
-                        backgroundImage: AssetImage('icon/test.png'),
+                        backgroundImage: AssetImage('assets/test.png'),
                       ),
                       SizedBox(
                         height: 2,
@@ -246,10 +250,10 @@ class Home extends StatelessWidget {
                   margin: EdgeInsets.only(left: 20),
                   height: 90,
                   child: Column(
-                    children: [
+                    children: const [
                       CircleAvatar(
                         maxRadius: 25,
-                        backgroundImage: AssetImage('icon/gallary.jpeg'),
+                        backgroundImage: AssetImage('assets/gallary.jpeg'),
                       ),
                       SizedBox(
                         height: 2,
@@ -272,7 +276,7 @@ class Home extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         maxRadius: 25,
-                        backgroundImage: AssetImage('icon/place.png'),
+                        backgroundImage: AssetImage('assets/place.png'),
                       ),
                       SizedBox(
                         height: 2,
@@ -300,7 +304,7 @@ class Home extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         maxRadius: 25,
-                        backgroundImage: AssetImage('icon/web.jpeg'),
+                        backgroundImage: AssetImage('assets/web.jpeg'),
                       ),
                       SizedBox(
                         height: 2,
@@ -314,8 +318,15 @@ class Home extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
+                  // Navigator.push(
+                  //     context, MaterialPageRoute(builder: (context) => fee()));
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => fee()));
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MyWebView(
+                              title:
+                                  "The Technical Institute of Textile &sciences,Bhiwani",
+                              selectedUrl: "https://titsbhiwani.ac.in/2019/index.php")));
                 },
                 child: Container(
                   margin: EdgeInsets.only(right: 20),
@@ -324,7 +335,7 @@ class Home extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         maxRadius: 25,
-                        backgroundImage: AssetImage('icon/fee.png'),
+                        backgroundImage: AssetImage('assets/fee.png'),
                       ),
                       SizedBox(
                         height: 2,
@@ -353,7 +364,7 @@ class Home extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         maxRadius: 25,
-                        backgroundImage: AssetImage('icon/mark.jpeg'),
+                        backgroundImage: AssetImage('assets/mark.jpeg'),
                       ),
                       SizedBox(
                         height: 2,
@@ -376,7 +387,7 @@ class Home extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         maxRadius: 25,
-                        backgroundImage: AssetImage('icon/notes.jpeg'),
+                        backgroundImage: AssetImage('assets/notes.jpeg'),
                       ),
                       SizedBox(
                         height: 2,
@@ -399,7 +410,7 @@ class Home extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         maxRadius: 25,
-                        backgroundImage: AssetImage("icon/about.png"),
+                        backgroundImage: AssetImage("assets/about.png"),
                       ),
                       SizedBox(
                         height: 2,
@@ -423,7 +434,7 @@ class Home extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         maxRadius: 25,
-                        backgroundImage: AssetImage('icon/feed.jpeg'),
+                        backgroundImage: AssetImage('assets/feed.jpeg'),
                       ),
                       SizedBox(
                         height: 2,
