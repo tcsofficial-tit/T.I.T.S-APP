@@ -14,7 +14,7 @@ class _MyAppState extends State<Gallery> {
     "3.jpg",
     "4.jpg",
     "5.jpg",
-    "6.jpg",
+    "6.jpeg",
     "7.jpg",
     "8.jpg",
     "9.jpg",
@@ -56,11 +56,13 @@ class _MyAppState extends State<Gallery> {
   ];
   int x = 0;
 
-  Widget _image = Image.asset(
-    "assets/${_images[0]}",
-    height: 100,
-    width: 100,
-  );
+  _image(int index) {
+    return AssetImage(
+    "assets/${_images[index]}",
+    // height: 100,
+    // width: 100,
+    );
+  }
 
   Widget _myAnimatedWidget = FirstWidget();
 
@@ -111,7 +113,7 @@ class _MyAppState extends State<Gallery> {
                               topRight: Radius.circular(30),
                             ),
                             image: DecorationImage(
-                                image: AssetImage(_images[x]),
+                                image: _image(x),
                                 fit: BoxFit.fill),
                           ),
                         ),
@@ -172,8 +174,6 @@ class _MyAppState extends State<Gallery> {
                         onTap: () {
                           setState(() {
                             x = index;
-                            _image = Image.asset("${_images[x]}");
-
                             for (var item in _images) {
                               if (item == _images[index]) {
                                 selectedItem = Border.all(
@@ -196,7 +196,7 @@ class _MyAppState extends State<Gallery> {
                             border: selectedItem,
                             borderRadius: BorderRadius.circular(10),
                             image: DecorationImage(
-                              image: AssetImage(_images[index]),
+                              image:_image(index),
                               fit: BoxFit.cover,
                             ),
                           ),
