@@ -54,6 +54,7 @@ class _MyAppState extends State<Gallery> {
     "43.jpg",
     "44.jpg",
   ];
+
   int x = 0;
 
   Widget _image = Image.asset(
