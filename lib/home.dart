@@ -244,7 +244,7 @@ class Home extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => gallary()));
+                      MaterialPageRoute(builder: (context) => Gallery()));
                 },
                 child: Container(
                   margin: EdgeInsets.only(left: 20),
@@ -326,7 +326,8 @@ class Home extends StatelessWidget {
                           builder: (context) => MyWebView(
                               title:
                                   "The Technical Institute of Textile &sciences,Bhiwani",
-                              selectedUrl: "https://titsbhiwani.ac.in/2019/index.php")));
+                              selectedUrl:
+                                  "https://titsbhiwani.ac.in/2019/index.php")));
                 },
                 child: Container(
                   margin: EdgeInsets.only(right: 20),
