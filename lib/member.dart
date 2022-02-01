@@ -1,21 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tits_cs_department/profile.dart';
 
-class members extends StatefulWidget {
-  members({Key? key}) : super(key: key);
+class member extends StatefulWidget {
+  member({Key? key}) : super(key: key);
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<members> {
+class _MyHomePageState extends State<member> {
   @override
   Widget build(BuildContext context) {
     var screenheight = MediaQuery.of(context).size.height;
     var screenwidth = MediaQuery.of(context).size.width;
-    List<String> names = [];
-    List<String> skills = [];
-    List<String> batches = [];
-    List<String> pics = [];
+    List<String> names = ["Dr. Mukesh Kumar"];
+    List<String> skills = ["Associat Profccer"];
+    List<String> batches = ["cs dep"];
+    List<String> pics = ["assets/mukesh.png"];
     var count = names.length;
     return Scaffold(
       backgroundColor: Colors.black,
