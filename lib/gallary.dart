@@ -77,7 +77,6 @@ class _MyAppState extends State<Gallery> {
         child: Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            backgroundColor: HexColor('#0f0f0f'),
             elevation: 6,
             leading: IconButton(
               icon: Icon(Icons.arrow_back),
@@ -85,7 +84,6 @@ class _MyAppState extends State<Gallery> {
             ),
             title: Text('Gallery'),
           ),
-          backgroundColor: HexColor('#282c35'),
           body: Column(
             children: <Widget>[
               SizedBox(
