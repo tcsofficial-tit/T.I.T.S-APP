@@ -55,11 +55,8 @@ dependencies:
   font_awesome: ^5.10.1
   font_awesome_flutter: ^8.7.0
   url_launcher: ^6.0.18
-<<<<<<< HEAD
   flutter_polygon: ^0.3.0+2
-=======
   quick_feedback: ^0.1.1
->>>>>>> 0375d401f6f38d2313cff2a79bc397ed43c6d813
 
 dev_dependencies:
   flutter_test:
