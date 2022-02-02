@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 // import 'package:polygon_clipper/polygon_clipper.dart';
@@ -284,7 +285,7 @@ TCS is a small and modest working Technical Society of T.I.T.&S. College compris
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(15),
                       child: Image.asset(
-                        'undraw_flutter_dev_wvqj.png',
+                        'assets/b1 (3).jpeg',
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -485,7 +486,7 @@ TCS is a small and modest working Technical Society of T.I.T.&S. College compris
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(15),
                         child: Image.asset(
-                          'undraw_project_team_lc5a.png',
+                          'assets/b1 (1).jpeg',
                           fit: BoxFit.fill,
                         ),
                       ),
@@ -605,8 +606,7 @@ The society aims at making solutions to real-world problems. Also, we make our m
                             backgroundColor: Colors.pink,
                             child: CircleAvatar(
                               radius: 25,
-                              backgroundImage:
-                                  AssetImage("Dr.MukeshKumar(Mentor).jpg"),
+                              backgroundImage: AssetImage("assets/mukesh.jpeg"),
                             ),
                           ),
                           RichText(
@@ -660,7 +660,7 @@ The principles on which this society is built, has Inherent characters with the 
                             child: CircleAvatar(
                               radius: 25,
                               backgroundImage:
-                                  AssetImage("Ms.ArchanaParmar.jpeg"),
+                                  AssetImage("assets/tt/it (7).jpg"),
                             ),
                           ),
                           RichText(
@@ -718,8 +718,7 @@ My particular contribution to students is to relate their research interests, ca
                             backgroundColor: Colors.pink,
                             child: CircleAvatar(
                               radius: 25,
-                              backgroundImage:
-                                  AssetImage("undraw_voice_interface_eckp.png"),
+                              backgroundImage: AssetImage("assets/b1 (2).jpeg"),
                             ),
                           ),
                           RichText(
