@@ -123,7 +123,7 @@ class Home extends StatelessWidget {
             }).toList(),
           ),
           const SizedBox(
-            height: 3,
+            height: 7,
           ),
           Container(
             height: 25,
@@ -135,7 +135,7 @@ class Home extends StatelessWidget {
                     context, MaterialPageRoute(builder: (context) => note()));
               },
               child: Marquee(
-                blankSpace: 100,
+                  blankSpace: 100,
                   text: 'This is a simple text for show official notice.',
                   style: const TextStyle(
                       fontSize: 18,
