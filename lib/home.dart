@@ -1,7 +1,10 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:marquee/marquee.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:tits_cs_department/ham.dart';
 import 'package:tits_cs_department/place.dart';
 import 'package:tits_cs_department/study_material/study_home.dart';
@@ -32,6 +35,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final RxInt selected_slider = 0.obs;
     return Scaffold(
       backgroundColor: Colors.white,
       drawer: ham(),
@@ -52,28 +56,73 @@ class Home extends StatelessWidget {
             )
           ]),
       body: Container(
-        margin: EdgeInsets.only(top: 1),
-        child: ListView(physics: ClampingScrollPhysics(), children: [
-          Container(
-              height: 240,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  padding: EdgeInsets.only(left: 1, right: 1),
-                  // Multipal images,
-                  itemCount: Images.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                        height: 230,
-                        width: 400,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(1),
-                            // user image
-                            image: DecorationImage(
-                              image: AssetImage(Images[index]),
-                              fit: BoxFit.cover,
-                            )));
-                  })),
-          SizedBox(
+        margin: const EdgeInsets.only(top: 1),
+        child: ListView(physics: const ClampingScrollPhysics(), children: [
+          CarouselSlider(
+            options: CarouselOptions(
+              aspectRatio: 1.75,
+              viewportFraction: 1,
+              initialPage: 0,
+              enableInfiniteScroll: true,
+              reverse: false,
+              autoPlay: true,
+              autoPlayInterval: 3.5.seconds,
+              autoPlayAnimationDuration: 1000.milliseconds,
+              autoPlayCurve: Curves.easeInOut,
+              enlargeCenterPage: true,
+              scrollDirection: Axis.horizontal,
+              onPageChanged: (index, reason) => selected_slider(index),
+            ),
+            items: Images.map((String image) {
+              return Builder(builder: (BuildContext context) {
+                return Stack(
+                  fit: StackFit.expand,
+                  children: <Widget>[
+                    Container(
+                      width: double.infinity,
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 5.0,
+                      ),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black, width: 1.5),
+                          borderRadius: BorderRadius.circular(9)),
+                      child: ClipRRect(
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(8),
+                        ),
+                        clipBehavior: Clip.hardEdge,
+                        child: FadeInImage(
+                          placeholder: AssetImage(image),
+                          image: AssetImage(image),
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Obx(
+                        () => Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: AnimatedSmoothIndicator(
+                            count: Images.length,
+                            effect: WormEffect(
+                              dotHeight: 10,
+                              dotWidth: 10,
+                              activeDotColor:
+                                  Theme.of(context).scaffoldBackgroundColor,
+                              dotColor: Theme.of(context).indicatorColor,
+                            ),
+                            activeIndex: selected_slider.value,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                );
+              });
+            }).toList(),
+          ),
+          const SizedBox(
             height: 3,
           ),
           Container(
@@ -86,14 +135,15 @@ class Home extends StatelessWidget {
                     context, MaterialPageRoute(builder: (context) => note()));
               },
               child: Marquee(
-                  text: 'This is a simple text for show official notice',
-                  style: TextStyle(
+                blankSpace: 100,
+                  text: 'This is a simple text for show official notice.',
+                  style: const TextStyle(
                       fontSize: 18,
                       color: Colors.red,
                       fontWeight: FontWeight.bold)),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Row(
@@ -106,7 +156,7 @@ class Home extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => member()));
                 },
                 child: Container(
-                  margin: EdgeInsets.only(left: 10),
+                  margin: const EdgeInsets.only(left: 10),
                   height: 130,
                   width: 106,
                   child: Image.asset("assets/dirct.jpg", fit: BoxFit.cover),

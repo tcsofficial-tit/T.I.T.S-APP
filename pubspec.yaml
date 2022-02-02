@@ -55,7 +55,7 @@ dependencies:
   url_launcher: ^6.0.18
   flutter_polygon: ^0.3.0+2
   marquee: ^2.2.0
-  # quick_feedback: ^0.1.1
+  flutter_placeholder_textlines: ^1.1.2
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_placeholder_textlines/placeholder_lines.dart';
 import 'package:tits_cs_department/us.dart';
 
 import 'customText.dart';
@@ -16,26 +17,6 @@ class ham extends StatelessWidget {
           child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          Hero(
-            tag: 'TIT_Logo',
-            child: DrawerHeader(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/logo.png"),
-                  fit: BoxFit.fitHeight,
-                ),
-              ),
-              child: Row(children: <Widget>[
-                Container(
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.only(left: 72, bottom: 94, top: 13),
-                  child: const CustomHeader(
-                    text: '',
-                  ),
-                ),
-              ]),
-            ),
-          ),
           UserAccountsDrawerHeader(
             decoration: BoxDecoration(),
             currentAccountPicture: Container(
@@ -74,7 +55,10 @@ class ham extends StatelessWidget {
                       ],
                     );
                   } else {
-                    return const CircularProgressIndicator();
+                    return const PlaceholderLines(
+                      animate: true,
+                      count: 1,
+                    );
                   }
                 }),
           ),
@@ -82,15 +66,6 @@ class ham extends StatelessWidget {
             title: CustomDescription(text: 'Profile'),
             onTap: () {},
           ),
-          // ListTile(
-          //   title: CustomDescription(text: 'A'),
-          //   onTap: () {
-          //     Navigator.push(
-          //       context,
-          //       MaterialPageRoute(builder: (context) => us()),
-          //     );
-          //   },
-          // ),
           ListTile(
             title: CustomDescription(text: 'Logout'),
             onTap: () {
