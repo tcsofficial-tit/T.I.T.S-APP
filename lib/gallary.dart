@@ -76,6 +76,7 @@ class _MyAppState extends State<Gallery> {
       home: Material(
         child: Scaffold(
           appBar: AppBar(
+            backgroundColor: HexColor('#123e64'),
             centerTitle: true,
             elevation: 6,
             leading: IconButton(

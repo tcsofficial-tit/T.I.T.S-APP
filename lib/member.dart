@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:tits_cs_department/profile.dart';
 
 class member extends StatefulWidget {
@@ -272,6 +273,7 @@ class _MyHomePageState extends State<member> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: HexColor('#123e64'),
         centerTitle: true,
         title: Text(
           'Faculty',
