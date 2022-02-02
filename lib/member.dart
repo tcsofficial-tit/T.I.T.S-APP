@@ -13,10 +13,24 @@ class _MyHomePageState extends State<member> {
   Widget build(BuildContext context) {
     var screenheight = MediaQuery.of(context).size.height;
     var screenwidth = MediaQuery.of(context).size.width;
-    List<String> names = ["Dr. Mukesh Kumar"];
-    List<String> skills = ["Associat Profccer"];
-    List<String> batches = ["cs dep"];
-    List<String> pics = ["assets/mukesh.png"];
+    List<String> names = [
+      "Dr. Mukesh Kumar",
+      "Dr. Nidhi Sharma",
+      "Mr. Anil Kumar",
+    ];
+    List<String> skills = ["Associate Professor"];
+    List<String> batches = ["Computer Engineering"];
+    List<String> pics = [
+      "assets/mukesh.png",
+      "assets/nidhi(1).jpg",
+      "assets/nidhi(1).png",
+      "assets/nidhi(2).jpg",
+      "assets/nidhi(3).jpg",
+      "assets/nidhi(4).jpg",
+      "assets/nidhi(5).jpg",
+      "assets/nidhi(6).jpg",
+      "assets/nidhi(7).jpg",
+    ];
     var count = names.length;
     return Scaffold(
       backgroundColor: Colors.black,
@@ -32,7 +46,10 @@ class _MyHomePageState extends State<member> {
         child: GridView.builder(
           itemCount: count,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, crossAxisSpacing: 4, mainAxisSpacing: 4),
+              childAspectRatio: 0.9,
+              crossAxisCount: 2,
+              crossAxisSpacing: 4,
+              mainAxisSpacing: 4),
           itemBuilder: (BuildContext, int index) {
             return GestureDetector(
               onTap: () {

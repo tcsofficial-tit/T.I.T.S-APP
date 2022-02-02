@@ -59,9 +59,9 @@ class _MyAppState extends State<Gallery> {
 
   _image(int index) {
     return AssetImage(
-    "assets/${_images[index]}",
-    // height: 100,
-    // width: 100,
+      "assets/${_images[index]}",
+      // height: 100,
+      // width: 100,
     );
   }
 
@@ -72,6 +72,7 @@ class _MyAppState extends State<Gallery> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Material(
         child: Scaffold(
           appBar: AppBar(
@@ -114,8 +115,7 @@ class _MyAppState extends State<Gallery> {
                               topRight: Radius.circular(30),
                             ),
                             image: DecorationImage(
-                                image: _image(x),
-                                fit: BoxFit.fill),
+                                image: _image(x), fit: BoxFit.cover),
                           ),
                         ),
                       ),
@@ -197,7 +197,7 @@ class _MyAppState extends State<Gallery> {
                             border: selectedItem,
                             borderRadius: BorderRadius.circular(10),
                             image: DecorationImage(
-                              image:_image(index),
+                              image: _image(index),
                               fit: BoxFit.cover,
                             ),
                           ),
