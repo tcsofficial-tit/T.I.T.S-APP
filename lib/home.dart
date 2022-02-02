@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:tits_cs_department/ham.dart';
 import 'package:tits_cs_department/place.dart';
 import 'package:tits_cs_department/study_material/study_home.dart';
@@ -33,7 +34,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       drawer: ham(),
-      appBar: AppBar(backgroundColor: Color(0xff3da2dd), actions: [
+      appBar: AppBar(backgroundColor: HexColor('#123e64'), actions: [
         Hero(
             tag: 'TIT_Logo',
             child: Container(

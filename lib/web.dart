@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class MyWebView extends StatelessWidget {
   final String title;
@@ -20,7 +21,7 @@ class MyWebView extends StatelessWidget {
       onWillPop: () => handleViewBack(),
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.grey[850],
+          backgroundColor: HexColor('#123e64'),
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () => Navigator.pop(context),
@@ -37,7 +38,6 @@ class MyWebView extends StatelessWidget {
           child: WebView(
             initialUrl: selectedUrl,
             javascriptMode: JavascriptMode.unrestricted,
-            
             onWebViewCreated: (WebViewController webViewController) {
               _controller.future.then(
                 (WebViewController value) =>
