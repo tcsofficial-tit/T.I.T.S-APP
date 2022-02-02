@@ -34,28 +34,22 @@ class Home extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       drawer: ham(),
-      appBar: AppBar(backgroundColor: HexColor('#123e64'), actions: [
-        Hero(
-            tag: 'TIT_Logo',
-            child: Container(
-              height: 35,
-              width: 270,
-              child: Image.asset(
-                "assets/name.jpg",
-                fit: BoxFit.fitWidth,
+      appBar: AppBar(
+          backgroundColor: HexColor('#123e64'),
+          title: Image(image: AssetImage("assets/name.jpg")),
+          centerTitle: true,
+          actions: [
+            IconButton(
+              onPressed: () {
+                FirebaseAuth auth = FirebaseAuth.instance;
+                auth.signOut();
+              },
+              icon: const Icon(
+                Icons.logout,
+                color: Colors.white,
               ),
-            )),
-        IconButton(
-          onPressed: () {
-            FirebaseAuth auth = FirebaseAuth.instance;
-            auth.signOut();
-          },
-          icon: const Icon(
-            Icons.logout,
-            color: Colors.white,
-          ),
-        )
-      ]),
+            )
+          ]),
       body: Container(
         margin: EdgeInsets.only(top: 1),
         child: ListView(physics: ClampingScrollPhysics(), children: [
