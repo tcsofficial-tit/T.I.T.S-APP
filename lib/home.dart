@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:marquee/marquee.dart';
 import 'package:tits_cs_department/ham.dart';
 import 'package:tits_cs_department/place.dart';
 import 'package:tits_cs_department/study_material/study_home.dart';
@@ -72,15 +73,25 @@ class Home extends StatelessWidget {
                               fit: BoxFit.cover,
                             )));
                   })),
+          SizedBox(
+            height: 3,
+          ),
           Container(
             height: 25,
             width: 300,
             color: Color(0xffc5c8cb),
-            child: Text('This is a simple text for show official notice',
-                style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.red,
-                    fontWeight: FontWeight.bold)),
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => note()));
+              },
+              child: Marquee(
+                  text: 'This is a simple text for show official notice',
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.red,
+                      fontWeight: FontWeight.bold)),
+            ),
           ),
           SizedBox(
             height: 10,

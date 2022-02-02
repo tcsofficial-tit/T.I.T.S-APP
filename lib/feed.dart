@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class FeedBack extends StatefulWidget {
   const FeedBack({Key? key}) : super(key: key);
@@ -11,6 +13,16 @@ class _FeedBackState extends State<FeedBack> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: HexColor('#123e64'),
+        centerTitle: true,
+        elevation: 6,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
+        title: Text('Feedback'),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Center(
@@ -69,7 +81,8 @@ class _FeedBackState extends State<FeedBack> {
                     horizontal: 90,
                   ),
                   child: TextField(
-                    decoration: InputDecoration(hintText: "Your Feedback Here..."),
+                    decoration:
+                        InputDecoration(hintText: "Your Feedback Here..."),
                   ),
                 ),
                 const SizedBox(
@@ -82,8 +95,12 @@ class _FeedBackState extends State<FeedBack> {
                       color: Colors.red,
                     ),
                     child: ElevatedButton(
-                      style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color?>(Colors.red)),
-                      onPressed: () {},
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all<Color?>(Colors.red)),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
                       child: const Text(
                         "SUBMIT",
                         style: TextStyle(color: Colors.white),
