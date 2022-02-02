@@ -214,7 +214,7 @@ class Home extends StatelessWidget {
                       MaterialPageRoute(
                           builder: (context) => MyTestView(
                                 selectedUrl:
-                                    'https://testonapp.ezexam.in/online-exams',
+                                    'https://testseries.ezexam.in/online-exams/',
                                 title: 'TIT Test Series',
                               )));
                 },
@@ -426,8 +426,8 @@ class Home extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => feed()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MyApp()));
                 },
                 child: Container(
                   margin: EdgeInsets.only(right: 20),

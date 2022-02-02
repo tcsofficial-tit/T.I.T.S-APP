@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.16.0-134.0.dev <3.0.0'
+  sdk: '>=2.12.0-134.0.dev <3.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -46,16 +46,20 @@ dependencies:
   flutter_pdfview: 1.1.0
   webview_flutter: ^3.0.0
   http:
-  permission_handler: 
+  permission_handler:
   path_provider: ^2.0.8
   dropdownfield: ^1.0.3
   hexcolor: ^2.0.6
   video_player: ^2.2.16
   # polygon_clipper: ^1.0.2
   font_awesome: ^5.10.1
-  font_awesome_flutter: ^9.2.0
+  font_awesome_flutter: ^8.7.0
   url_launcher: ^6.0.18
+<<<<<<< HEAD
   flutter_polygon: ^0.3.0+2
+=======
+  quick_feedback: ^0.1.1
+>>>>>>> 0375d401f6f38d2313cff2a79bc397ed43c6d813
 
 dev_dependencies:
   flutter_test:
