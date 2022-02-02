@@ -1,50 +1,81 @@
 import 'package:flutter/material.dart';
-import 'package:quick_feedback/quick_feedback.dart';
 
-class MyApp {
-  void _showFeedback(context) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return QuickFeedback(
-          title: 'Leave a feedback', // Title of dialog
-          showTextBox: true, // default false
-          textBoxHint:
-              'Share your feedback', // Feedback text field hint text default: Tell us more
-          submitText: 'SUBMIT', // submit button text default: SUBMIT
-          onSubmitCallback: (feedback) {
-            print('$feedback'); // map { rating: 2, feedback: 'some feedback' }
-            Navigator.of(context).pop();
-          },
-          askLaterText: 'ASK LATER',
-          onAskLaterCallback: () {
-            print('Do something on ask later click');
-          },
-        );
-      },
-    );
-  }
+class feed extends StatefulWidget {
+  const feed({Key? key}) : super(key: key);
 
   @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<feed> {
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Example App',
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Quick Feedback'),
-        ),
-        body: SingleChildScrollView(
-          child: Container(
-            child: Center(
-              child: FlatButton(
-                onPressed: () => _showFeedback(context),
-                child: Text('Feedback'),
+    return Scaffold(
+
+      body: SingleChildScrollView(
+
+        child: Column(
+          children: <Widget>[
+            SizedBox(height:300,),
+            Text("Give Your Feedback",style: TextStyle(
+              color: Colors.black, fontWeight: FontWeight.bold,
+            ),),
+            SizedBox(height:30,),
+
+
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 50),
+              child: TextField(
+                decoration: InputDecoration(
+                    icon: Icon(Icons.email,color: Colors.red,),
+                    hintText: "Mail Id"
+                ),
               ),
             ),
-          ),
+
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 50),
+              child: TextField(
+                decoration: InputDecoration(
+                    icon: Icon(Icons.person,color: Colors.red,),
+                    hintText: "Your Name"
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 50),
+              child: TextField(
+                decoration: InputDecoration(
+                    icon: Icon(Icons.phone_android, color: Colors.red,),
+                    hintText: "Mobile Number"
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 90,),
+              child: TextField(
+
+                decoration: InputDecoration(
+                    hintText: "Your Feedback Here..."
+                ),
+              ),
+            ),
+            SizedBox(height: 40,),
+            Container(
+                color: Colors.red,
+                height: 30,
+                width: 100,
+                decoration: BoxDecoration(
+                ),
+                child: FlatButton(
+
+                  onPressed: () {  },
+                  child: Text("SUBMIT",style: TextStyle(color: Colors.white),),
+                )
+            )
+          ],
         ),
       ),
     );
-  }
-}
+  }}
