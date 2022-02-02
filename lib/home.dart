@@ -426,8 +426,8 @@ class Home extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => feed()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => FeedBack()));
                 },
                 child: Container(
                   margin: EdgeInsets.only(right: 20),

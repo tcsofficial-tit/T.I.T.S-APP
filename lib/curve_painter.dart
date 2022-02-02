@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:polygon_clipper/polygon_clipper.dart';
 
 class BottomWaveClipper extends CustomClipper<Path> {
   @override

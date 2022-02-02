@@ -51,12 +51,10 @@ dependencies:
   dropdownfield: ^1.0.3
   hexcolor: ^2.0.6
   video_player: ^2.2.16
-  # polygon_clipper: ^1.0.2
-  font_awesome: ^5.10.1
-  font_awesome_flutter: ^8.7.0
+  font_awesome_flutter: ^9.2.0
   url_launcher: ^6.0.18
   flutter_polygon: ^0.3.0+2
-  quick_feedback: ^0.1.1
+  # quick_feedback: ^0.1.1
 
 dev_dependencies:
   flutter_test:
