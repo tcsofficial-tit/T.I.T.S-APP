@@ -3,10 +3,12 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:polygon_clipper/polygon_clipper.dart';
 import 'package:hexcolor/hexcolor.dart';
+// import 'package:polygon_clipper/polygon_clipper.dart';
+import 'package:flutter_polygon/flutter_polygon.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:video_player/video_player.dart';
+
 import 'BottomWaveClipper.dart';
 
 class AboutUs extends StatefulWidget {
