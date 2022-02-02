@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class MyTestView extends StatelessWidget {
@@ -18,7 +19,7 @@ class MyTestView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey[850],
+        backgroundColor: HexColor('#123e64'),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
