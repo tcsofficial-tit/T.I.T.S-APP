@@ -50,6 +50,11 @@ dependencies:
   path_provider: ^2.0.8
   dropdownfield: ^1.0.3
   hexcolor: ^2.0.6
+  video_player: ^2.2.16
+  polygon_clipper: ^1.0.2
+  font_awesome: ^5.10.1
+  font_awesome_flutter: ^9.2.0
+  url_launcher: ^6.0.18
 
 dev_dependencies:
   flutter_test:

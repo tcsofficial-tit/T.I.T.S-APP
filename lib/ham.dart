@@ -39,21 +39,19 @@ class ham extends StatelessWidget {
           UserAccountsDrawerHeader(
             decoration: BoxDecoration(),
             currentAccountPicture: Container(
-                child: 
-                result!.photoURL != null
+                child: result!.photoURL != null
                     ? CircleAvatar(
                         backgroundImage:
                             NetworkImage(result!.photoURL.toString()),
                       )
-                    : 
-                    CircleAvatar(
+                    : CircleAvatar(
                         child: Text(
                           result?.email![0].toString() ?? '',
                           style: const TextStyle(fontSize: 30),
                         ),
                       )),
-            accountEmail:
-                Text(result?.email ?? '', style: TextStyle(color: Colors.black)),
+            accountEmail: Text(result?.email ?? '',
+                style: TextStyle(color: Colors.black)),
             accountName: FutureBuilder(
                 future: FirebaseDatabase.instance
                     .ref()
@@ -105,7 +103,7 @@ class ham extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => us()),
+                MaterialPageRoute(builder: (context) => AboutUs()),
               );
             },
           ),

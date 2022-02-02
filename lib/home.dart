@@ -210,7 +210,13 @@ class Home extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => test()));
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MyTestView(
+                                selectedUrl:
+                                    'https://testonapp.ezexam.in/online-exams',
+                                title: 'TIT Test Series',
+                              )));
                 },
                 child: Container(
                   margin: EdgeInsets.only(right: 20),
@@ -397,8 +403,8 @@ class Home extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => us()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AboutUs()));
                 },
                 child: Container(
                   height: 90,
