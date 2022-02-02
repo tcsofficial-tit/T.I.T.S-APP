@@ -12,6 +12,7 @@ import 'package:tits_cs_department/test.dart';
 import 'package:tits_cs_department/us.dart';
 import 'package:tits_cs_department/web.dart';
 
+import 'attend.dart';
 import 'event.dart';
 import 'fee.dart';
 import 'feed.dart';
@@ -165,7 +166,7 @@ class Home extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => member()));
+                      MaterialPageRoute(builder: (context) => attend()));
                 },
                 child: Container(
                   margin: EdgeInsets.only(left: 10),
@@ -177,7 +178,7 @@ class Home extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => member()));
+                      MaterialPageRoute(builder: (context) => attend()));
                 },
                 child: Container(
                   margin: EdgeInsets.only(left: 10, right: 10),
@@ -198,7 +199,7 @@ class Home extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => member()));
+                      MaterialPageRoute(builder: (context) => attend()));
                 },
                 child: Container(
                   margin: EdgeInsets.only(left: 20),
@@ -230,12 +231,12 @@ class Home extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         maxRadius: 25,
-                        backgroundImage: AssetImage('assets/event.png'),
+                        backgroundImage: AssetImage('assets/att.jpeg'),
                       ),
                       SizedBox(
                         height: 2,
                       ),
-                      Text('Events',
+                      Text('Attendence',
                           style: TextStyle(
                               fontSize: 11, fontWeight: FontWeight.bold)),
                     ],
