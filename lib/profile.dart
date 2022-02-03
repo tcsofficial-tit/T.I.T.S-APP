@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class profile extends StatelessWidget {
   String? name;
@@ -20,7 +21,7 @@ class profile extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(40, 0, 40, 0),
             margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
             decoration: BoxDecoration(
-              color: Colors.grey[900],
+              color: HexColor('#123e64'),
               borderRadius: BorderRadius.circular(20.0),
               boxShadow: [
                 BoxShadow(

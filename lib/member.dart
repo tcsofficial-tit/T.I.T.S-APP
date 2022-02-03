@@ -306,7 +306,7 @@ class _MyHomePageState extends State<member> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  color: Colors.white70,
+                  color: HexColor('#123e64'),
                   shadowColor: Colors.black,
                   elevation: 10,
                   child: Column(
@@ -326,7 +326,7 @@ class _MyHomePageState extends State<member> {
                       Text(
                         names[index],
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                     ],
