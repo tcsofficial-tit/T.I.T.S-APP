@@ -157,12 +157,16 @@ class Home extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => member()));
                 },
                 child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  elevation: 10,
+                  color: HexColor('#123e64'),
                   child: Container(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10, vertical: 5),
-                      // margin: const EdgeInsets.only(left: 10),
                       height: 130,
-                      width: context.width * 0.28,
+                      width: context.width * 0.3,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(15),
                         child:
@@ -176,12 +180,16 @@ class Home extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => attend()));
                 },
                 child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  elevation: 10,
+                  color: HexColor('#123e64'),
                   child: Container(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10, vertical: 5),
-                      // margin: EdgeInsets.only(left: 10),
                       height: 130,
-                      width: context.width * 0.28,
+                      width: context.width * 0.3,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(15),
                         child:
@@ -195,16 +203,20 @@ class Home extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => attend()));
                 },
                 child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  elevation: 10,
+                  color: HexColor('#123e64'),
                   child: Container(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10, vertical: 5),
-                      // margin: EdgeInsets.only(left: 10, right: 10),
                       height: 130,
-                      width: context.width * 0.28,
+                      width: context.width * 0.3,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(15),
-                        child: Image.asset("assets/mukesh.jpeg",
-                            fit: BoxFit.fitWidth),
+                        child:
+                            Image.asset("assets/mukesh.jpeg", fit: BoxFit.fill),
                       )),
                 ),
               ),

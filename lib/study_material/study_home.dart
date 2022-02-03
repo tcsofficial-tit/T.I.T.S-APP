@@ -19,8 +19,11 @@ class StudyMaterial extends StatefulWidget {
 class _StudyMaterialState extends State<StudyMaterial> {
   @override
   Widget build(BuildContext context) {
+    // const urlImage =
+    //     'https://images.unsplash.com/photo-1519145897500-869c40ccb024?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9';
+    
     const urlImage =
-        'https://images.unsplash.com/photo-1519145897500-869c40ccb024?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9';
+    "https://data.whicdn.com/images/351706090/original.jpg";
     return Scaffold(
       body: Stack(
         children: <Widget>[

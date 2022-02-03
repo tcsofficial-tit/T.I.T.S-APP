@@ -11,6 +11,9 @@ class sem8 extends StatefulWidget {
 class _sem8State extends State<sem8> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(),
+      body: const Center(child: Text("Sem 8")),
+    );
   }
 }

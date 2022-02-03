@@ -11,6 +11,9 @@ class sem5 extends StatefulWidget {
 class _sem5State extends State<sem5> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(),
+      body: const Center(child: Text("Sem 5")),
+    );
   }
 }
