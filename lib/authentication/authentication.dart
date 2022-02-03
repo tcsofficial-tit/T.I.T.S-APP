@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:tits_cs_department/authentication/student_card.dart';
 import 'package:tits_cs_department/widgets/custom_button.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../widgets/custom_text_field.dart';
@@ -13,348 +14,78 @@ import 'authentication_controller.dart';
 class AuthenticationScreen extends StatelessWidget {
   final controller = Get.put(AuthenticationController());
   AuthenticationScreen({Key? key}) : super(key: key);
-  late String name, email, rollNo, password;
-  final GlobalKey<FormState> _studentSignUpFormKey = GlobalKey<FormState>();
-  final GlobalKey<FormState> _studentLogInFormKey = GlobalKey<FormState>();
+  
   final GlobalKey<FormState> _teachersFormKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     var cardList = [
-      buildStudentCard(context),
-      // buildStudentCard(),
-      Text("LOL"),
+      StudentCard(),
+      Center(
+        child: VxGlassmorphic(
+                opacity: 0.1,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: "Faculty".text.xl4.bold.white.make().shimmer(
+                      primaryColor: Vx.warmGray100,
+                      secondaryColor: Colors.purple),)),
+      )
     ];
     final RxInt selected_slider = 0.obs;
     return Scaffold(
-      body: Stack(
-        children: [
-          VxAnimatedBox()
-              .size(context.screenWidth, context.screenHeight)
-              .withGradient(const LinearGradient(colors: [
-                Vx.blue500,
-                Vx.purple600,
-              ], begin: Alignment.topLeft, end: Alignment.bottomRight))
-              .make(),
-          CarouselSlider(
-              options: CarouselOptions(
-                height: Get.height,
-                // aspectRatio: 2,
-                viewportFraction: 1,
-                initialPage: 0,
-                enableInfiniteScroll: false,
-                reverse: false,
-                // autoPlay: true,
-                autoPlayInterval: 5.seconds,
-                autoPlayAnimationDuration: 1000.milliseconds,
-                autoPlayCurve: Curves.easeInOut,
-                // enlargeCenterPage: true,
-                scrollDirection: Axis.horizontal,
-                onPageChanged: (index, reason) => selected_slider(index),
-              ),
-              items: cardList.map((card) {
-                return Stack(
-                  fit: StackFit.expand,
-                  children: [
-                    card,
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Obx(
-                        () => Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: AnimatedSmoothIndicator(
-                            count: 2,
-                            effect: WormEffect(
-                              dotHeight: 10,
-                              dotWidth: 10,
-                              activeDotColor:
-                                  Theme.of(context).scaffoldBackgroundColor,
-                              dotColor: Theme.of(context).indicatorColor,
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            VxAnimatedBox()
+                .size(context.screenWidth, context.screenHeight)
+                .withGradient(const LinearGradient(colors: [
+                  Vx.blue500,
+                  Vx.purple600,
+                ], begin: Alignment.topLeft, end: Alignment.bottomRight))
+                .make(),
+            CarouselSlider(
+                options: CarouselOptions(
+                  height: Get.height,
+                  // aspectRatio: 2,
+                  viewportFraction: 1,
+                  initialPage: 0,
+                  enableInfiniteScroll: false,
+                  reverse: false,
+                  // autoPlay: true,
+                  autoPlayInterval: 5.seconds,
+                  autoPlayAnimationDuration: 1000.milliseconds,
+                  autoPlayCurve: Curves.easeInOut,
+                  // enlargeCenterPage: true,
+                  scrollDirection: Axis.horizontal,
+                  onPageChanged: (index, reason) => selected_slider(index),
+                ),
+                items: cardList.map((card) {
+                  return Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      card,
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Obx(
+                          () => Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: AnimatedSmoothIndicator(
+                              count: 2,
+                              effect: WormEffect(
+                                dotHeight: 10,
+                                dotWidth: 10,
+                                activeDotColor:
+                                    Theme.of(context).scaffoldBackgroundColor,
+                                dotColor: Theme.of(context).indicatorColor,
+                              ),
+                              activeIndex: selected_slider.value,
                             ),
-                            activeIndex: selected_slider.value,
                           ),
                         ),
-                      ),
-                    )
-                  ],
-                );
-              }).toList()),
-        ],
-      ),
-    );
-  }
-
-  Widget buildStudentCard(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          VxGlassmorphic(
-              opacity: 0.1,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: "Student".text.xl4.bold.white.make().shimmer(
-                    primaryColor: Vx.warmGray100,
-                    secondaryColor: Colors.purple),
-              )),
-          SizedBox(
-            height: 20,
-          ),
-          VxGlassmorphic(
-            opacity: 0.1,
-            width: Get.width * 0.9,
-            child: Obx(
-              () => CustomScrollView(
-                shrinkWrap: true,
-                slivers: [
-                  _buildTabButtons(context),
-                  _buildStudentSignupForm(context),
-                  _buildStudentLogInForm(context),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildStudentLogInForm(BuildContext context) {
-    return SliverVisibility(
-      visible: controller.currentTabIndex.value == 0,
-      sliver: SliverToBoxAdapter(
-        child: Form(
-          key: _studentLogInFormKey,
-          child: Padding(
-            padding: EdgeInsets.all(Get.width / 20),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                buildCustomTextFiledForEMail(_studentLogInFormKey),
-                SizedBox(
-                  height: 20,
-                ),
-                buildCustomTextFiledForPassword(_studentLogInFormKey),
-                SizedBox(
-                  height: 30,
-                ),
-                buildCustomButtonForLogin(context, _studentLogInFormKey)
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildStudentSignupForm(BuildContext context) {
-    return SliverVisibility(
-      visible: controller.currentTabIndex.value == 1,
-      sliver: SliverToBoxAdapter(
-        child: Form(
-          key: _studentSignUpFormKey,
-          child: Padding(
-            padding: EdgeInsets.all(Get.width / 20),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                buildCustomTextFieldForRollNo(_studentSignUpFormKey),
-                SizedBox(
-                  height: 20,
-                ),
-                buildCustomTextFieldForName(_studentSignUpFormKey),
-                SizedBox(
-                  height: 20,
-                ),
-                buildCustomTextFiledForEMail(_studentSignUpFormKey),
-                SizedBox(
-                  height: 20,
-                ),
-                buildCustomTextFiledForPassword(_studentSignUpFormKey),
-                SizedBox(
-                  height: 30,
-                ),
-                buildCustomButtonForContinue(context, _studentSignUpFormKey)
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  CustomTextField buildCustomTextFieldForName(GlobalKey<FormState> formKey) {
-    return CustomTextField(
-      prefixIcon: Icons.person,
-      hintText: "Enter Full Name",
-      inputType: TextInputType.name,
-      onChanged: ((input) {
-        name = input!;
-      }),
-      validator: (value) {
-        if (value!.isEmpty) {
-          return 'Enter Your Full Name';
-        }
-        formKey.currentState!.save();
-        return null;
-      },
-    );
-  }
-
-  CustomTextField buildCustomTextFieldForRollNo(GlobalKey<FormState> formKey) {
-    return CustomTextField(
-      prefixIcon: Icons.list_alt_rounded,
-      hintText: "Enter your college id",
-      inputType: TextInputType.name,
-      onChanged: ((input) {
-        rollNo = input!;
-      }),
-      validator: (value) {
-        if (value!.isEmpty) {
-          return 'Enter Your college id';
-        }
-        formKey.currentState!.save();
-        return null;
-      },
-    );
-  }
-
-  buildCustomTextFiledForEMail(GlobalKey<FormState> formKey) {
-    return CustomTextField(
-      prefixIcon: Icons.email,
-      hintText: "Enter Email Address",
-      inputType: TextInputType.emailAddress,
-      onChanged: ((input) {
-        email = input!;
-      }),
-      validator: (value) {
-        if (value!.isEmpty) {
-          return 'Enter an Email Address';
-        } else if (!RegExp(
-                r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-            .hasMatch(value)) {
-          return 'Please enter a valid email address';
-        }
-        formKey.currentState!.save();
-        return null;
-      },
-    );
-  }
-
-  buildCustomTextFiledForPassword(GlobalKey<FormState> formKey) {
-    return CustomTextField(
-      obscureText: true,
-      prefixIcon: Icons.password,
-      hintText: "Enter Password",
-      inputType: TextInputType.visiblePassword,
-      onChanged: ((input) {
-        password = input!;
-      }),
-      validator: (value) {
-        if (value!.isEmpty) {
-          return 'Enter your password';
-        } else if (value.length < 8) {
-          return 'Password must be 8 digits long';
-        } else if (value.isAlphabetOnly || value.isNumericOnly) {
-          return 'Password must be alphanumeric';
-        }
-        formKey.currentState!.save();
-        return null;
-      },
-    );
-  }
-
-  buildCustomButtonForContinue(
-      BuildContext context, GlobalKey<FormState> formKey) {
-    return CustomButton(
-      text: "Continue",
-      onPressed: () {
-        if (formKey.currentState!.validate()) {
-          EmailAuth emailAuth = EmailAuth(
-            sessionName: "TIT&S",
-          );
-
-          emailAuth.sendOtp(recipientMail: email, otpLength: 6).then((_) {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (BuildContext context) => EmailVerification(
-                      email: email,
-                      name: name,
-                      rollNo: rollNo,
-                      password: password,
-                    )));
-          });
-        }
-      },
-    );
-  }
-
-  buildCustomButtonForLogin(
-      BuildContext context, GlobalKey<FormState> formKey) {
-    return CustomButton(
-      text: "Log In",
-      onPressed: () {
-        if (formKey.currentState!.validate()) {
-          logInToFb(context);
-        }
-      },
-    );
-  }
-
-  void logInToFb(BuildContext context) {
-    FirebaseAuth.instance
-        .signInWithEmailAndPassword(email: email, password: password)
-        .catchError((err) {
-      // setState(() {
-      //   isLoading = false;
-      // });
-      Get.log(err.message);
-      showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: Text("Error"),
-              content: Text(err.message),
-              actions: [
-                ElevatedButton(
-                  child: Text("Ok"),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                )
-              ],
-            );
-          });
-    });
-  }
-
-  Widget _buildTabButtons(BuildContext context) {
-    return SliverPadding(
-      padding: EdgeInsets.symmetric(
-        horizontal: Get.width * 0.05,
-      ),
-      sliver: SliverToBoxAdapter(
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            border: Border(
-              bottom: BorderSide(
-                color: Theme.of(context).disabledColor,
-              ),
-            ),
-          ),
-          child: TabBar(
-            indicatorColor: Colors.white,
-            controller: controller.tabController,
-            onTap: controller.changeTab,
-            tabs: [
-              Tab(
-                text: 'Login'.tr,
-              ),
-              Tab(
-                text: 'New User'.tr,
-              ),
-            ],
-          ),
+                      )
+                    ],
+                  );
+                }).toList()),
+          ],
         ),
       ),
     );

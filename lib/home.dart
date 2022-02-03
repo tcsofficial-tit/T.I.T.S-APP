@@ -135,7 +135,7 @@ class Home extends StatelessWidget {
                     context, MaterialPageRoute(builder: (context) => note()));
               },
               child: Marquee(
-                blankSpace: 100,
+                  blankSpace: 100,
                   text: 'This is a simple text for show official notice.',
                   style: const TextStyle(
                       fontSize: 18,
@@ -147,19 +147,26 @@ class Home extends StatelessWidget {
             height: 10,
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //scroll
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisSize: MainAxisSize.min,
             children: [
               GestureDetector(
                 onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => member()));
                 },
-                child: Container(
-                  margin: const EdgeInsets.only(left: 10),
-                  height: 130,
-                  width: 106,
-                  child: Image.asset("assets/dirct.jpg", fit: BoxFit.cover),
+                child: Card(
+                  child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 5),
+                      // margin: const EdgeInsets.only(left: 10),
+                      height: 130,
+                      width: context.width * 0.28,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child:
+                            Image.asset("assets/dirct.jpg", fit: BoxFit.cover),
+                      )),
                 ),
               ),
               GestureDetector(
@@ -167,11 +174,18 @@ class Home extends StatelessWidget {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => member()));
                 },
-                child: Container(
-                  margin: EdgeInsets.only(left: 10),
-                  height: 130,
-                  width: 106,
-                  child: Image.asset("assets/parm.png", fit: BoxFit.cover),
+                child: Card(
+                  child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 5),
+                      // margin: EdgeInsets.only(left: 10),
+                      height: 130,
+                      width: context.width * 0.28,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child:
+                            Image.asset("assets/parm.png", fit: BoxFit.cover),
+                      )),
                 ),
               ),
               GestureDetector(
@@ -179,12 +193,18 @@ class Home extends StatelessWidget {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => member()));
                 },
-                child: Container(
-                  margin: EdgeInsets.only(left: 10, right: 10),
-                  height: 130,
-                  width: 106,
-                  child:
-                      Image.asset("assets/mukesh.jpeg", fit: BoxFit.fitWidth),
+                child: Card(
+                  child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 5),
+                      // margin: EdgeInsets.only(left: 10, right: 10),
+                      height: 130,
+                      width: context.width * 0.28,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image.asset("assets/mukesh.jpeg",
+                            fit: BoxFit.fitWidth),
+                      )),
                 ),
               ),
             ],
