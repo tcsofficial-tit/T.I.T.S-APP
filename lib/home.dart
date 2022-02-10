@@ -154,7 +154,7 @@ class Home extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => member()));
+                      MaterialPageRoute(builder: (context) => attend()));
                 },
                 child: Card(
                   shape: RoundedRectangleBorder(
@@ -231,7 +231,7 @@ class Home extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => attend()));
+                      MaterialPageRoute(builder: (context) => member()));
                 },
                 child: Container(
                   margin: EdgeInsets.only(left: 20),
