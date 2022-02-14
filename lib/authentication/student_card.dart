@@ -12,9 +12,11 @@ import 'email_otp.dart';
 class StudentCard extends StatelessWidget {
   final controller = Get.put(AuthenticationController());
   static late String name, email, rollNo, password;
-  static final  GlobalKey<FormState> _studentSignUpFormKey = GlobalKey<FormState>();
-  static final GlobalKey<FormState> _studentLogInFormKey = GlobalKey<FormState>();
-  StudentCard({ Key? key }) : super(key: key);
+  static final GlobalKey<FormState> _studentSignUpFormKey =
+      GlobalKey<FormState>();
+  static final GlobalKey<FormState> _studentLogInFormKey =
+      GlobalKey<FormState>();
+  StudentCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +27,10 @@ class StudentCard extends StatelessWidget {
           VxGlassmorphic(
               opacity: 0.1,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: "Student".text.xl4.bold.white.make().shimmer(
-                    primaryColor: Vx.warmGray100,
-                    secondaryColor: Colors.purple),
-              )),
+                  padding: const EdgeInsets.all(8.0),
+                  child: "Student".text.xl4.bold.white.make().shimmer(
+                      primaryColor: Vx.gray200,
+                      secondaryColor: Color.fromARGB(255, 8, 73, 126)))),
           SizedBox(
             height: 20,
           ),
@@ -85,7 +86,7 @@ class StudentCard extends StatelessWidget {
   //     ),
   //   );
   // }
-  
+
   Widget _buildStudentLogInForm(BuildContext context) {
     return SliverVisibility(
       visible: controller.currentTabIndex.value == 0,
@@ -327,5 +328,4 @@ class StudentCard extends StatelessWidget {
       ),
     );
   }
-
 }

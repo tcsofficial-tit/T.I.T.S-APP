@@ -14,7 +14,7 @@ import 'authentication_controller.dart';
 class AuthenticationScreen extends StatelessWidget {
   final controller = Get.put(AuthenticationController());
   AuthenticationScreen({Key? key}) : super(key: key);
-  
+
   final GlobalKey<FormState> _teachersFormKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -22,12 +22,13 @@ class AuthenticationScreen extends StatelessWidget {
       StudentCard(),
       Center(
         child: VxGlassmorphic(
-                opacity: 0.1,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: "Faculty".text.xl4.bold.white.make().shimmer(
-                      primaryColor: Vx.warmGray100,
-                      secondaryColor: Colors.purple),)),
+            opacity: 0.1,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: "Faculty".text.xl4.bold.white.make().shimmer(
+                  primaryColor: Vx.gray200,
+                  secondaryColor: Color.fromARGB(255, 8, 73, 126)),
+            )),
       )
     ];
     final RxInt selected_slider = 0.obs;
@@ -38,8 +39,8 @@ class AuthenticationScreen extends StatelessWidget {
             VxAnimatedBox()
                 .size(context.screenWidth, context.screenHeight)
                 .withGradient(const LinearGradient(colors: [
-                  Vx.blue500,
-                  Vx.purple600,
+                  Color.fromARGB(255, 8, 58, 119),
+                  Color.fromARGB(255, 1, 18, 41),
                 ], begin: Alignment.topLeft, end: Alignment.bottomRight))
                 .make(),
             CarouselSlider(
