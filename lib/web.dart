@@ -27,6 +27,7 @@ class MyWebView extends StatelessWidget {
             onPressed: () => Navigator.pop(context),
           ),
           title: Text(title),
+          centerTitle: true,
         ),
         body: GestureDetector(
           onTap: () {

@@ -56,7 +56,7 @@ class _AboutUsState extends State<AboutUs> {
         //       Navigator.pop(context);
         //     }),
         centerTitle: true,
-        backgroundColor: HexColor('#0f0f0f'),
+        backgroundColor: HexColor('#123e64'),
         // elevation: 6,
         title: Text('About Us'),
       ),

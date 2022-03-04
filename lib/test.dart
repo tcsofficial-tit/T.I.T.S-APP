@@ -24,7 +24,8 @@ class MyTestView extends StatelessWidget {
           icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
         ),
-        title: Text(title),
+        title: Text("Test Series"),
+        centerTitle: true,
       ),
       body: GestureDetector(
         onTap: () {

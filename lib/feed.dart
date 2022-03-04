@@ -49,7 +49,7 @@ class _FeedBackState extends State<FeedBack> {
                     decoration: InputDecoration(
                         icon: Icon(
                           Icons.email,
-                          color: Colors.red,
+                          color: Colors.blue,
                         ),
                         hintText: "Mail Id"),
                   ),
@@ -60,7 +60,7 @@ class _FeedBackState extends State<FeedBack> {
                     decoration: InputDecoration(
                         icon: Icon(
                           Icons.person,
-                          color: Colors.red,
+                          color: Colors.blue,
                         ),
                         hintText: "Your Name"),
                   ),
@@ -71,7 +71,7 @@ class _FeedBackState extends State<FeedBack> {
                     decoration: InputDecoration(
                         icon: Icon(
                           Icons.phone_android,
-                          color: Colors.red,
+                          color: Colors.blue,
                         ),
                         hintText: "Mobile Number"),
                   ),
@@ -92,12 +92,12 @@ class _FeedBackState extends State<FeedBack> {
                     height: 30,
                     width: 100,
                     decoration: const BoxDecoration(
-                      color: Colors.red,
+                      color: Colors.blue,
                     ),
                     child: ElevatedButton(
                       style: ButtonStyle(
                           backgroundColor:
-                              MaterialStateProperty.all<Color?>(Colors.red)),
+                              MaterialStateProperty.all<Color?>(Colors.blue)),
                       onPressed: () {
                         Navigator.of(context).pop();
                       },

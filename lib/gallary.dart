@@ -75,6 +75,7 @@ class _MyAppState extends State<Gallery> {
       debugShowCheckedModeBanner: false,
       home: Material(
         child: Scaffold(
+          backgroundColor: Color.fromARGB(255, 246, 250, 255),
           appBar: AppBar(
             backgroundColor: HexColor('#123e64'),
             centerTitle: true,
@@ -88,7 +89,7 @@ class _MyAppState extends State<Gallery> {
           body: Column(
             children: <Widget>[
               SizedBox(
-                height: 10,
+                height: 60,
               ),
               AnimatedSwitcher(
                 duration: const Duration(milliseconds: 4000),

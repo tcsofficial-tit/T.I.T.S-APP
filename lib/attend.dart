@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 import 'attendance/attendance_controller.dart';
 import 'attendance/attendance_model.dart';
@@ -96,6 +97,8 @@ class _MyHomePageStateAttend extends State<MyHomePageAttend> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(widget.title),
+        centerTitle: true,
+        backgroundColor: HexColor('#123e64'),
       ),
       body: Center(
         child: Column(
@@ -182,7 +185,7 @@ class _MyHomePageStateAttend extends State<MyHomePageAttend> {
                       ),
                       Row(
                         children: [
-                          Text("Roll No. Ce001 : "),
+                          Text("Roll No. Ce003 : "),
                           Checkbox(
                             value: _checkbox3,
                             onChanged: (value) {
@@ -291,18 +294,21 @@ class _MyHomePageStateAttend extends State<MyHomePageAttend> {
                       Row(
                         children: [
                           Text("Roll No. CE009 : "),
-                          Checkbox(
-                            value: _checkbox9,
-                            onChanged: (value) {
-                              setState(() {
-                                _checkbox9 = !_checkbox9;
-                              });
-                              if (!_checkbox9) {
-                                roll9 = "A";
-                              } else {
-                                roll9 = "P";
-                              }
-                            },
+                          Align(
+                            alignment: Alignment.center,
+                            child: Checkbox(
+                              value: _checkbox9,
+                              onChanged: (value) {
+                                setState(() {
+                                  _checkbox9 = !_checkbox9;
+                                });
+                                if (!_checkbox9) {
+                                  roll9 = "A";
+                                } else {
+                                  roll9 = "P";
+                                }
+                              },
+                            ),
                           ),
                         ],
                       ),
@@ -313,7 +319,7 @@ class _MyHomePageStateAttend extends State<MyHomePageAttend> {
               color: Colors.blue,
               textColor: Colors.white,
               onPressed: _submitForm,
-              child: Text('Submit Feedback'),
+              child: Text('Submit'),
             ),
           ],
         ),

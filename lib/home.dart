@@ -421,8 +421,7 @@ class Home extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => MyWebView(
-                                      title:
-                                          "The Technical Institute of Textile &sciences,Bhiwani",
+                                      title: "TIT&S Website",
                                       selectedUrl:
                                           "https://titsbhiwani.ac.in/")));
                         },
@@ -453,8 +452,7 @@ class Home extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => MyWebView(
-                                      title:
-                                          "The Technical Institute of Textile &sciences,Bhiwani",
+                                      title: "Fee Portal",
                                       selectedUrl:
                                           "https://titsbhiwani.ac.in/2019/index.php")));
                         },

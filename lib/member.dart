@@ -33,11 +33,11 @@ class _MyHomePageState extends State<member> {
       "Ms. Archana",
       "Dr. G.K. Tyagi",
       "Dr.Amal Chowdhury",
-      "Mr. Saumen Bhattacharya",
+      "Mr. Saumen",
       "Dr. Ashvani Goyal",
       "Dr. Ajit Pattanayak",
       "Mr. Dhananjay Kumar",
-      "Mr. Dharamendra Sharma",
+      "Mr. Dharamendra",
       "Dr. Suman Bhatacharya",
       "Dr. Sudershan Dhamija",
       "Ms. Ritu Sharma",
@@ -284,7 +284,7 @@ class _MyHomePageState extends State<member> {
         child: GridView.builder(
           itemCount: count,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 0.85,
+              childAspectRatio: 1,
               crossAxisCount: 2,
               crossAxisSpacing: 4,
               mainAxisSpacing: 4),
@@ -300,36 +300,41 @@ class _MyHomePageState extends State<member> {
                           pic: pics[index],
                         ));
               },
-              child: Container(
-                padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  color: HexColor('#123e64'),
-                  shadowColor: Colors.black,
-                  elevation: 10,
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(
-                        width: screenwidth * 0.30,
-                        height: screenheight * 0.15,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(15),
-                          child: Image.asset(
-                            pics[index],
-                            fit: BoxFit.fill,
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(0, 7.5, 0, 0),
+                child: Container(
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    color: HexColor('#123e64'),
+                    shadowColor: Colors.black,
+                    elevation: 10,
+                    child: Column(
+                      children: <Widget>[
+                        SizedBox(
+                          height: 15,
+                        ),
+                        SizedBox(
+                          width: screenwidth * 0.30,
+                          height: screenheight * 0.15,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: Image.asset(
+                              pics[index],
+                              fit: BoxFit.fill,
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        names[index],
-                        style: TextStyle(
-                          color: Colors.white,
+                        SizedBox(height: 10),
+                        Text(
+                          names[index],
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),

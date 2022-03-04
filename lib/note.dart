@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:tits_cs_department/notices/form_controller.dart';
 import 'package:tits_cs_department/notices/notice_form.dart';
 
@@ -28,7 +29,9 @@ class _FeedbackListPageState extends State<FeedbackListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("widget.title"),
+        backgroundColor: HexColor('#123e64'),
+        title: Text("Notice"),
+        centerTitle: true,
       ),
       body: ListView.builder(
         itemCount: feedbackItems.length,
@@ -36,16 +39,15 @@ class _FeedbackListPageState extends State<FeedbackListPage> {
           return ListTile(
             title: Row(
               children: <Widget>[
-                Icon(Icons.person),
+                Icon(Icons.message_rounded),
                 Expanded(
                   child: Text(
-                      "${feedbackItems[index].serial} (${feedbackItems[index].heading})"),
+                      "${feedbackItems[index].serial} ${feedbackItems[index].heading}"),
                 )
               ],
             ),
             subtitle: Row(
               children: <Widget>[
-                Icon(Icons.message),
                 Expanded(
                   child: Text(feedbackItems[index].about),
                 )
