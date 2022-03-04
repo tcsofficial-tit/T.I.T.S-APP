@@ -133,7 +133,9 @@ class Home extends StatelessWidget {
             child: InkWell(
               onTap: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => note()));
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => FeedbackListPage()));
               },
               child: Marquee(
                   blankSpace: 100,
@@ -475,7 +477,9 @@ class Home extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => note()));
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => FeedbackListPage()));
                 },
                 child: Container(
                   height: 90,
