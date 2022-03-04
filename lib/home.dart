@@ -57,6 +57,7 @@ class Home extends StatelessWidget {
             )
           ]),
       body: Container(
+        color: Color.fromARGB(239, 255, 255, 255),
         margin: const EdgeInsets.only(top: 1),
         child: ListView(physics: const ClampingScrollPhysics(), children: [
           CarouselSlider(
@@ -67,7 +68,7 @@ class Home extends StatelessWidget {
               enableInfiniteScroll: true,
               reverse: false,
               autoPlay: true,
-              autoPlayInterval: 3.5.seconds,
+              autoPlayInterval: 2.5.seconds,
               autoPlayAnimationDuration: 1000.milliseconds,
               autoPlayCurve: Curves.easeInOut,
               enlargeCenterPage: true,
@@ -124,12 +125,12 @@ class Home extends StatelessWidget {
             }).toList(),
           ),
           const SizedBox(
-            height: 7,
+            height: 10,
           ),
           Container(
             height: 25,
             width: 300,
-            color: Color(0xffc5c8cb),
+            color: Color.fromARGB(255, 0, 0, 0),
             child: InkWell(
               onTap: () {
                 Navigator.push(
@@ -139,15 +140,15 @@ class Home extends StatelessWidget {
               },
               child: Marquee(
                   blankSpace: 100,
-                  text: 'This is a simple text for show official notice.',
+                  text: 'Click Here For Latest Updates',
                   style: const TextStyle(
-                      fontSize: 18,
-                      color: Colors.red,
+                      fontSize: 15,
+                      color: Color.fromARGB(255, 241, 122, 122),
                       fontWeight: FontWeight.bold)),
             ),
           ),
           const SizedBox(
-            height: 10,
+            height: 12,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -159,14 +160,15 @@ class Home extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => event()));
                 },
                 child: Card(
+                  shadowColor: Colors.black,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),
-                  elevation: 10,
+                  elevation: 20,
                   color: HexColor('#123e64'),
                   child: Container(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 5),
+                          horizontal: 5, vertical: 5),
                       height: 130,
                       width: context.width * 0.3,
                       child: ClipRRect(
@@ -182,14 +184,15 @@ class Home extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => event()));
                 },
                 child: Card(
+                  shadowColor: Colors.black,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),
-                  elevation: 10,
+                  elevation: 20,
                   color: HexColor('#123e64'),
                   child: Container(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 5),
+                          horizontal: 5, vertical: 5),
                       height: 130,
                       width: context.width * 0.3,
                       child: ClipRRect(
@@ -205,14 +208,15 @@ class Home extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => event()));
                 },
                 child: Card(
+                  shadowColor: Colors.black,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),
-                  elevation: 10,
+                  elevation: 20,
                   color: HexColor('#123e64'),
                   child: Container(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 5),
+                          horizontal: 5, vertical: 5),
                       height: 130,
                       width: context.width * 0.3,
                       child: ClipRRect(
@@ -225,332 +229,370 @@ class Home extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: 15,
+            height: 12,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => member()));
-                },
-                child: Container(
-                  margin: EdgeInsets.only(left: 20),
-                  height: 90,
-                  child: Column(
+          Card(
+            margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      CircleAvatar(
-                        maxRadius: 25,
-                        backgroundImage: AssetImage('assets/member.jpeg'),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => member()));
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(left: 20),
+                          height: 90,
+                          child: Column(
+                            children: [
+                              CircleAvatar(
+                                maxRadius: 25,
+                                backgroundImage:
+                                    AssetImage('assets/member.jpeg'),
+                              ),
+                              SizedBox(
+                                height: 2,
+                              ),
+                              Text('Faculty',
+                                  style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold)),
+                            ],
+                          ),
+                        ),
                       ),
-                      SizedBox(
-                        height: 2,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MyHomePageAttend(
+                                        title: 'Attendance',
+                                      )));
+                        },
+                        child: Container(
+                          height: 90,
+                          child: Column(
+                            children: [
+                              CircleAvatar(
+                                maxRadius: 25,
+                                backgroundImage: AssetImage('assets/att.jpeg'),
+                              ),
+                              SizedBox(
+                                height: 2,
+                              ),
+                              Text('Attendence',
+                                  style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold)),
+                            ],
+                          ),
+                        ),
                       ),
-                      Text('Faculty',
-                          style: TextStyle(
-                              fontSize: 11, fontWeight: FontWeight.bold)),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => StudyMaterial()));
+                        },
+                        child: Container(
+                          height: 90,
+                          child: Column(
+                            children: const [
+                              CircleAvatar(
+                                maxRadius: 25,
+                                backgroundImage:
+                                    AssetImage('assets/study.jpeg'),
+                              ),
+                              SizedBox(
+                                height: 2,
+                              ),
+                              Text('Study',
+                                  style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold)),
+                              Text('Material',
+                                  style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold)),
+                            ],
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MyTestView(
+                                        selectedUrl:
+                                            'https://testseries.ezexam.in/online-exams/',
+                                        title: 'TIT Test Series',
+                                      )));
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(right: 20),
+                          height: 90,
+                          child: Column(
+                            children: [
+                              CircleAvatar(
+                                maxRadius: 25,
+                                backgroundImage: AssetImage('assets/test.png'),
+                              ),
+                              SizedBox(
+                                height: 2,
+                              ),
+                              Text('Test Series',
+                                  style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold)),
+                            ],
+                          ),
+                        ),
+                      ),
                     ],
                   ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => MyHomePageAttend(
-                                title: 'Attendance',
-                              )));
-                },
-                child: Container(
-                  height: 90,
-                  child: Column(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      CircleAvatar(
-                        maxRadius: 25,
-                        backgroundImage: AssetImage('assets/att.jpeg'),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Gallery()));
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(left: 20),
+                          height: 90,
+                          child: Column(
+                            children: const [
+                              CircleAvatar(
+                                maxRadius: 25,
+                                backgroundImage:
+                                    AssetImage('assets/gallary.jpeg'),
+                              ),
+                              SizedBox(
+                                height: 2,
+                              ),
+                              Text('Gallery',
+                                  style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold)),
+                            ],
+                          ),
+                        ),
                       ),
-                      SizedBox(
-                        height: 2,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => place()));
+                        },
+                        child: Container(
+                          height: 90,
+                          child: Column(
+                            children: [
+                              CircleAvatar(
+                                maxRadius: 25,
+                                backgroundImage: AssetImage('assets/place.png'),
+                              ),
+                              SizedBox(
+                                height: 2,
+                              ),
+                              Text('Placements',
+                                  style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold)),
+                            ],
+                          ),
+                        ),
                       ),
-                      Text('Attendence',
-                          style: TextStyle(
-                              fontSize: 11, fontWeight: FontWeight.bold)),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MyWebView(
+                                      title:
+                                          "The Technical Institute of Textile &sciences,Bhiwani",
+                                      selectedUrl:
+                                          "https://titsbhiwani.ac.in/")));
+                        },
+                        child: Container(
+                          height: 90,
+                          child: Column(
+                            children: [
+                              CircleAvatar(
+                                maxRadius: 25,
+                                backgroundImage: AssetImage('assets/web.jpeg'),
+                              ),
+                              SizedBox(
+                                height: 2,
+                              ),
+                              Text('Website',
+                                  style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold)),
+                            ],
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          // Navigator.push(
+                          //     context, MaterialPageRoute(builder: (context) => fee()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MyWebView(
+                                      title:
+                                          "The Technical Institute of Textile &sciences,Bhiwani",
+                                      selectedUrl:
+                                          "https://titsbhiwani.ac.in/2019/index.php")));
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(right: 20),
+                          height: 90,
+                          child: Column(
+                            children: [
+                              CircleAvatar(
+                                maxRadius: 25,
+                                backgroundImage: AssetImage('assets/fee.png'),
+                              ),
+                              SizedBox(
+                                height: 2,
+                              ),
+                              Text('Fees',
+                                  style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold)),
+                            ],
+                          ),
+                        ),
+                      ),
                     ],
                   ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => StudyMaterial()));
-                },
-                child: Container(
-                  height: 90,
-                  child: Column(
-                    children: const [
-                      CircleAvatar(
-                        maxRadius: 25,
-                        backgroundImage: AssetImage('assets/study.jpeg'),
-                      ),
-                      SizedBox(
-                        height: 2,
-                      ),
-                      Text('Study',
-                          style: TextStyle(
-                              fontSize: 11, fontWeight: FontWeight.bold)),
-                      Text('Material',
-                          style: TextStyle(
-                              fontSize: 11, fontWeight: FontWeight.bold)),
-                    ],
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => MyTestView(
-                                selectedUrl:
-                                    'https://testseries.ezexam.in/online-exams/',
-                                title: 'TIT Test Series',
-                              )));
-                },
-                child: Container(
-                  margin: EdgeInsets.only(right: 20),
-                  height: 90,
-                  child: Column(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      CircleAvatar(
-                        maxRadius: 25,
-                        backgroundImage: AssetImage('assets/test.png'),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => mark()));
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(left: 20),
+                          height: 90,
+                          child: Column(
+                            children: [
+                              CircleAvatar(
+                                maxRadius: 25,
+                                backgroundImage: AssetImage('assets/mark.jpeg'),
+                              ),
+                              SizedBox(
+                                height: 2,
+                              ),
+                              Text('Mark Sheet',
+                                  style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold)),
+                            ],
+                          ),
+                        ),
                       ),
-                      SizedBox(
-                        height: 2,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => FeedbackListPage()));
+                        },
+                        child: Container(
+                          height: 90,
+                          child: Column(
+                            children: [
+                              CircleAvatar(
+                                maxRadius: 25,
+                                backgroundImage:
+                                    AssetImage('assets/notes.jpeg'),
+                              ),
+                              SizedBox(
+                                height: 2,
+                              ),
+                              Text('Notice',
+                                  style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold)),
+                            ],
+                          ),
+                        ),
                       ),
-                      Text('Test Series',
-                          style: TextStyle(
-                              fontSize: 11, fontWeight: FontWeight.bold)),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AboutUs()));
+                        },
+                        child: Container(
+                          height: 90,
+                          child: Column(
+                            children: [
+                              CircleAvatar(
+                                maxRadius: 25,
+                                backgroundImage: AssetImage("assets/about.png"),
+                              ),
+                              SizedBox(
+                                height: 2,
+                              ),
+                              Text('About Us',
+                                  style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold)),
+                            ],
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => FeedBack()));
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(right: 20),
+                          height: 90,
+                          child: Column(
+                            children: [
+                              CircleAvatar(
+                                maxRadius: 25,
+                                backgroundImage: AssetImage('assets/feed.jpeg'),
+                              ),
+                              SizedBox(
+                                height: 2,
+                              ),
+                              Text('Feedback',
+                                  style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold)),
+                            ],
+                          ),
+                        ),
+                      ),
                     ],
                   ),
-                ),
+                ],
               ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Gallery()));
-                },
-                child: Container(
-                  margin: EdgeInsets.only(left: 20),
-                  height: 90,
-                  child: Column(
-                    children: const [
-                      CircleAvatar(
-                        maxRadius: 25,
-                        backgroundImage: AssetImage('assets/gallary.jpeg'),
-                      ),
-                      SizedBox(
-                        height: 2,
-                      ),
-                      Text('Gallery',
-                          style: TextStyle(
-                              fontSize: 11, fontWeight: FontWeight.bold)),
-                    ],
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => place()));
-                },
-                child: Container(
-                  height: 90,
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                        maxRadius: 25,
-                        backgroundImage: AssetImage('assets/place.png'),
-                      ),
-                      SizedBox(
-                        height: 2,
-                      ),
-                      Text('Placements',
-                          style: TextStyle(
-                              fontSize: 11, fontWeight: FontWeight.bold)),
-                    ],
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => MyWebView(
-                              title:
-                                  "The Technical Institute of Textile &sciences,Bhiwani",
-                              selectedUrl: "https://titsbhiwani.ac.in/")));
-                },
-                child: Container(
-                  height: 90,
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                        maxRadius: 25,
-                        backgroundImage: AssetImage('assets/web.jpeg'),
-                      ),
-                      SizedBox(
-                        height: 2,
-                      ),
-                      Text('Website',
-                          style: TextStyle(
-                              fontSize: 11, fontWeight: FontWeight.bold)),
-                    ],
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  // Navigator.push(
-                  //     context, MaterialPageRoute(builder: (context) => fee()));
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => MyWebView(
-                              title:
-                                  "The Technical Institute of Textile &sciences,Bhiwani",
-                              selectedUrl:
-                                  "https://titsbhiwani.ac.in/2019/index.php")));
-                },
-                child: Container(
-                  margin: EdgeInsets.only(right: 20),
-                  height: 90,
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                        maxRadius: 25,
-                        backgroundImage: AssetImage('assets/fee.png'),
-                      ),
-                      SizedBox(
-                        height: 2,
-                      ),
-                      Text('Fees',
-                          style: TextStyle(
-                              fontSize: 11, fontWeight: FontWeight.bold)),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => mark()));
-                },
-                child: Container(
-                  margin: EdgeInsets.only(left: 20),
-                  height: 90,
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                        maxRadius: 25,
-                        backgroundImage: AssetImage('assets/mark.jpeg'),
-                      ),
-                      SizedBox(
-                        height: 2,
-                      ),
-                      Text('Mark Sheet',
-                          style: TextStyle(
-                              fontSize: 11, fontWeight: FontWeight.bold)),
-                    ],
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => FeedbackListPage()));
-                },
-                child: Container(
-                  height: 90,
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                        maxRadius: 25,
-                        backgroundImage: AssetImage('assets/notes.jpeg'),
-                      ),
-                      SizedBox(
-                        height: 2,
-                      ),
-                      Text('Notice',
-                          style: TextStyle(
-                              fontSize: 11, fontWeight: FontWeight.bold)),
-                    ],
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => AboutUs()));
-                },
-                child: Container(
-                  height: 90,
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                        maxRadius: 25,
-                        backgroundImage: AssetImage("assets/about.png"),
-                      ),
-                      SizedBox(
-                        height: 2,
-                      ),
-                      Text('About Us',
-                          style: TextStyle(
-                              fontSize: 11, fontWeight: FontWeight.bold)),
-                    ],
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => FeedBack()));
-                },
-                child: Container(
-                  margin: EdgeInsets.only(right: 20),
-                  height: 90,
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                        maxRadius: 25,
-                        backgroundImage: AssetImage('assets/feed.jpeg'),
-                      ),
-                      SizedBox(
-                        height: 2,
-                      ),
-                      Text('Feedback',
-                          style: TextStyle(
-                              fontSize: 11, fontWeight: FontWeight.bold)),
-                    ],
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
         ]),
       ),
