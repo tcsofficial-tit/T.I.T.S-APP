@@ -105,7 +105,7 @@ class _MyAppState extends State<Gallery> {
                   child: Column(
                     children: <Widget>[
                       Container(
-                        height: 450,
+                        height: 400,
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
