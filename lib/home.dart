@@ -13,6 +13,7 @@ import 'package:tits_cs_department/us.dart';
 import 'package:tits_cs_department/web.dart';
 
 import 'attend.dart';
+import 'attendance/attend_filter.dart';
 import 'event.dart';
 import 'fee.dart';
 import 'feed.dart';
@@ -156,8 +157,8 @@ class Home extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => event()));
+                  //   Navigator.push(context,
+                  //       MaterialPageRoute(builder: (context) => AttendDrop()));
                 },
                 child: Card(
                   shadowColor: Colors.black,
@@ -180,8 +181,8 @@ class Home extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => event()));
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => event()));
                 },
                 child: Card(
                   shadowColor: Colors.black,
@@ -204,8 +205,8 @@ class Home extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => event()));
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => event()));
                 },
                 child: Card(
                   shadowColor: Colors.black,
@@ -273,9 +274,7 @@ class Home extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => MyHomePageAttend(
-                                        title: 'Attendance',
-                                      )));
+                                  builder: (context) => AttendDrop()));
                         },
                         child: Container(
                           height: 90,
@@ -411,7 +410,7 @@ class Home extends StatelessWidget {
                               SizedBox(
                                 height: 2,
                               ),
-                              Text('Placements',
+                              Text('Company',
                                   style: TextStyle(
                                       fontSize: 11,
                                       fontWeight: FontWeight.bold)),
@@ -487,8 +486,13 @@ class Home extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => mark()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MyWebView(
+                                      title: "Marksheet",
+                                      selectedUrl:
+                                          "http://result.mdurtk.in/postexam/result.aspx")));
                         },
                         child: Container(
                           margin: EdgeInsets.only(left: 20),

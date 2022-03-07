@@ -3,6 +3,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_placeholder_textlines/placeholder_lines.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:tits_cs_department/developer.dart';
 import 'package:tits_cs_department/us.dart';
 
 import 'customText.dart';
@@ -100,7 +101,7 @@ class ham extends StatelessWidget {
                 onLongPress: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => AboutUs()),
+                    MaterialPageRoute(builder: (context) => Developers()),
                   );
                 },
               ),
